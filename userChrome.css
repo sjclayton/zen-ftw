@@ -222,6 +222,19 @@
   }
 }
 
+/* Add visual cue to URL bar when opening in a new tab */
+#urlbar[zen-newtab="true"] {
+  #identity-icon {
+    list-style-image: url("chrome://browser/skin/zen-icons/new-tab-image.svg") !important;
+  }
+
+  &[open] #identity-icon-box::after {
+    content: "New Tab" !important;
+    filter: opacity(0.5) !important;
+    padding-left: 6px !important;
+  }
+}
+
 /* Animations related to tabs (normal/pinned/essentials) */
 .close-icon {
   transition: background-color 0.3s ease-in-out !important;
