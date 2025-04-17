@@ -185,15 +185,15 @@
   #zen-current-workspace-indicator-container {
     order: -1;
     margin-bottom: 40px !important;
-    
+
 
   }
- 
+
   .zen-current-workspace-indicator {
     justify-content: center !important;
     --zen-workspace-indicator-height: 10px !important;
     margin-top: calc(var(--zen-workspace-indicator-height) - 5) !important;
-    
+
     &::before {
       transition: background 0.3s ease-in-out !important;
     }
@@ -422,7 +422,7 @@
       --zen-colors-hover-bg: color-mix(in srgb, var(--zen-primary-color) 90%, black 10%) !important;
       --zen-colors-primary-foreground: color-mix(in srgb, var(--zen-primary-color) 80%, white 20%) !important;
       --zen-colors-input-bg: color-mix(in srgb, var(--zen-primary-color) 10%, black 80%) !important;
-      --zen-colors-border: color-mix(in srgb, var(--zen-colors-secondary) 80%, black 20%) !important;
+      /* --zen-colors-border: color-mix(in srgb, var(--zen-colors-secondary) 80%, black 20%) !important; */
       --zen-dialog-background: color-mix(in srgb, var(--zen-primary-color) 10%, black 90%) !important;
       --zen-browser-gradient-base: color-mix(in srgb, var(--zen-primary-color) 30%, black 70%) !important;
     }
@@ -497,5 +497,45 @@
         background-color: color-mix(in srgb, var(--zen-colors-primary) 60%, transparent) !important;
       }
     }
+  }
+
+  .identity-color-blue {
+    --identity-tab-color: #89b4fa !important;
+    --identity-icon-color: #89b4fa !important;
+  }
+
+  .identity-color-turquoise {
+    --identity-tab-color: #94e2d5 !important;
+    --identity-icon-color: #94e2d5 !important;
+  }
+
+  .identity-color-green {
+    --identity-tab-color: #a6e3a1 !important;
+    --identity-icon-color: #a6e3a1 !important;
+  }
+
+  .identity-color-yellow {
+    --identity-tab-color: #f9e2af !important;
+    --identity-icon-color: #f9e2af !important;
+  }
+
+  .identity-color-orange {
+    --identity-tab-color: #fab387 !important;
+    --identity-icon-color: #fab387 !important;
+  }
+
+  .identity-color-red {
+    --identity-tab-color: #f38ba8 !important;
+    --identity-icon-color: #f38ba8 !important;
+  }
+
+  .identity-color-pink {
+    --identity-tab-color: #f5c2e7 !important;
+    --identity-icon-color: #f5c2e7 !important;
+  }
+
+  .identity-color-purple {
+    --identity-tab-color: #cba6f7 !important;
+    --identity-icon-color: #cba6f7 !important;
   }
 }
