@@ -225,14 +225,31 @@
 /* Add visual cue to URL bar when opening in a new tab */
 #urlbar[zen-newtab="true"] {
   #identity-icon {
-    list-style-image: url("chrome://browser/skin/zen-icons/new-tab-image.svg") !important;
+  fill-opacity: 1 !important;
+  list-style-image: url("chrome://browser/skin/zen-icons/new-tab-image.svg") !important;
   }
 
   &[open] #identity-icon-box::after {
     content: "New Tab" !important;
-    filter: opacity(0.5) !important;
     padding-left: 6px !important;
   }
+}
+
+/* Adjust background of URL bar popup */
+#urlbar[breakout-extend="true"] > #urlbar-background {
+  background: color-mix(in srgb, var(--zen-colors-primary) 42%, rgba(1,1,1,0.55)) !important;
+  border-radius: 16px !important;
+  border-color: transparent !important;
+}
+
+/* Adjust background color of URL bar */
+#urlbar-background {
+  background-color: color-mix(in srgb, var(--zen-colors-primary) 45%, var(--zen-colors-tertiary) 92%) !important;
+}
+
+/* Adjust color of URL in URL bar */
+.urlbarView-url {
+  color: color-mix(in srgb, var(--zen-colors-primary) 95%, white 37%) !important;
 }
 
 /* Animations related to tabs (normal/pinned/essentials) */
@@ -476,17 +493,9 @@
     background-color: #1e1e2e !important;
   }
 
-  #urlbar-background {
-    background-color: color-mix(in srgb, var(--zen-colors-primary) 45%, var(--zen-colors-tertiary) 92%) !important;
-  }
-
   .content-shortcuts {
     background-color: #1e1e2e !important;
     border-color: #b4befe !important;
-  }
-
-  .urlbarView-url {
-    color: color-mix(in srgb, var(--zen-colors-primary) 60%, white 22%) !important;
   }
 
   #zenEditBookmarkPanelFaviconContainer {
