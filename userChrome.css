@@ -257,6 +257,11 @@
   color: color-mix(in srgb, var(--zen-colors-primary) 95%, white 37%) !important;
 }
 
+/* Ctrl-Tab label text color */
+#ctrlTab-panel .ctrlTab-label {
+  color: var(--lwt-text-color) !important;
+}
+
 /* Animations related to tabs (normal/pinned/essentials) */
 .close-icon {
   transition: background-color 0.3s ease-in-out !important;
