@@ -247,7 +247,12 @@
   background-color: color-mix(in srgb, var(--zen-colors-primary) 45%, var(--zen-colors-tertiary) 92%) !important;
 }
 
-/* Adjust color of URL in URL bar */
+/* Adjust color of page title in URL bar popup */
+.urlbarView-title {
+  color: var(--lwt-text-color) !important;
+}
+
+/* Adjust color of URL in URL bar popup */
 .urlbarView-url {
   color: color-mix(in srgb, var(--zen-colors-primary) 95%, white 37%) !important;
 }
