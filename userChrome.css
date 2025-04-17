@@ -1,0 +1,501 @@
+/* Animations used by various rules */
+@keyframes grow {
+  0% {
+    height: 0%;
+  }
+
+  25% {
+    height: 8.332%;
+  }
+
+  50% {
+    height: 16.667%;
+  }
+
+  75% {
+    height: 24.999%;
+  }
+
+  100% {
+    height: 33.33%;
+  }
+}
+
+/* Adjust sizing of sidebar buttons (lower left) */
+#zen-sidebar-bottom-buttons {
+  --toolbarbutton-inner-padding: 4px !important;
+
+  & > toolbarbutton:not(#zen-workspaces-button) {
+    padding: 5px !important;
+  }
+}
+
+.unified-extensions-item.chromeclass-toolbar-additional {
+  gap: 4px !important;
+  margin: 0px -1px !important;
+}
+
+/* Improve appearance of close (exit) button (Linux) */
+@media (-moz-platform: linux) {
+  #PanelUI-menu-button.toolbarbutton-1 {
+    padding-right: 3px !important;
+  }
+
+  .titlebar-buttonbox-container {
+    padding: var(--zen-toolbar-button-inner-padding) !important;
+    padding-right: 9px !important;
+  }
+
+  .titlebar-button {
+    padding: 0px 1px !important;
+  }
+
+  .titlebar-close:hover {
+    border-radius: var(--toolbarbutton-border-radius) !important;
+    background-color: crimson !important;
+  }
+}
+
+/* Improve appearance of close (exit) button (Windows) */
+@media (-moz-platform: windows) {
+  #PanelUI-menu-button.toolbarbutton-1 {
+    padding-right: 3px !important;
+  }
+
+  .titlebar-buttonbox-container {
+    padding: var(--zen-toolbar-button-inner-padding) !important;
+    padding-right: 9px !important;
+  }
+
+  .titlebar-close {
+    border-radius: var(--toolbarbutton-border-radius) !important;
+    padding: 8px !important;
+  }
+
+  .titlebar-close:hover {
+    background-color: crimson !important;
+  }
+}
+
+/* Add background & border highlight to selected tab(s) */
+.tabbrowser-tab:not([pinned]):is([multiselected="true"], [selected]) .tab-background {
+  border: 1px solid var(--zen-colors-tertiary) !important;
+  background: color-mix(in srgb,
+      var(--zen-colors-primary) 45%,
+      transparent) !important;
+}
+
+/* Dim tab text when tab is unloaded */
+#tabbrowser-tabs {
+  & .tabbrowser-tab {
+    @media -moz-pref("zen.tabs.dim-pending") {
+      &[pending="true"] .tab-text {
+        opacity: 0.5 !important;
+      }
+    }
+  }
+}
+
+/* Highlight for non-default container tab(s) */
+.tab-context-line {
+  position: absolute !important;
+  width: 4px !important;
+  border-radius: 4px !important;
+  animation: grow 0.2s ease-in-out forwards !important;
+  top: 50% !important;
+  left: 2px !important;
+  transform: translateY(-50%) !important;
+  background-color: var(--identity-icon-color) !important;
+}
+
+/* Floating status bar */
+#statuspanel {
+  margin: 5px !important;
+}
+
+#statuspanel-label {
+  color: var(--lwt-text-color) !important;
+  border-radius: var(--zen-border-radius) !important;
+  padding: 2px 10px !important;
+  border: 1px solid var(--zen-colors-border) !important;
+  background: var(--zen-colors-tertiary) !important;
+}
+
+/* Now playing indicator for inactive tab(s) */
+.tab-close-button {
+  margin-inline-end: calc(var(--inline-tab-padding) / -6) !important;
+}
+
+.tabbrowser-tab:is([soundplaying], [muted]) {
+  &:not([selected='true']) .tab-background::after {
+    content: '';
+    position: absolute !important;
+    width: 4px !important;
+    border-radius: 4px !important;
+    animation: grow 0.2s ease-in-out forwards !important;
+    top: 50% !important;
+    left: calc(100% - 5px) !important;
+    transform: translateY(-50%) !important;
+    background-color: var(--zen-primary-color) !important;
+  }
+}
+
+/* Hide tab icon overlay for audio (mute button) */
+.tab-icon-overlay:is([soundplaying],
+  [muted],
+  [activemedia-blocked]) {
+  display: none !important;
+}
+
+/* Only show close tab button on hover (even active tab) */
+#tabbrowser-tabs .tabbrowser-tab:not([pinned]):is([visuallyselected]):not(:hover) .tab-close-button {
+  display: none !important;
+}
+
+/* Workspace menu active workspace indicator */
+#PanelUI-zen-workspaces-list toolbarbutton {
+  &.zen-workspace-button[active="true"] .zen-workspace-icon::before {
+    content: '';
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    left: -2px !important;
+    width: 3px !important;
+    height: 33.33% !important;
+    background-color: var(--zen-primary-color) !important;
+    border-radius: 4px !important;
+  }
+}
+
+/* Remove borders from workspaces in popup */
+.zen-workspace-icon {
+  border: none !important;
+}
+
+/* Workspace indicator (selection button) */
+#zen-workspaces-button {
+  display: none !important;
+}
+
+@media -moz-pref("zen.workspaces.show-workspace-indicator") {
+  #urlbar {
+    margin-top: 5px !important;
+  }
+
+  #zen-current-workspace-indicator-container {
+    order: -1;
+    margin-bottom: 40px !important;
+    
+
+  }
+ 
+  .zen-current-workspace-indicator {
+    justify-content: center !important;
+    --zen-workspace-indicator-height: 10px !important;
+    margin-top: calc(var(--zen-workspace-indicator-height) - 5) !important;
+    
+    &::before {
+      transition: background 0.3s ease-in-out !important;
+    }
+  }
+
+  .zen-current-workspace-indicator-name {
+    color: var(--lwt-text-color) !important;
+    opacity: 1 !important;
+  }
+}
+
+/* Glance buttons */
+#zen-glance-sidebar-container {
+  & toolbarbutton {
+    background: color-mix(in srgb, var(--zen-colors-hover-bg), black 8%) !important;
+  }
+}
+
+/* Colorize media player */
+#zen-media-controls-toolbar > toolbaritem {
+  background-color: color-mix(in srgb, var(--zen-colors-primary) 100%, black 55%) !important;
+}
+
+/* Hide media player playing animation */
+#zen-media-controls-toolbar {
+  & #zen-media-focus-button::after {
+    display: none !important;
+  }
+}
+
+/* Animations related to tabs (normal/pinned/essentials) */
+.close-icon {
+  transition: background-color 0.3s ease-in-out !important;
+}
+
+.tab-reset-button {
+  transition: background-color 0.3s ease-in-out !important;
+}
+
+.tabbrowser-tab[pinned][zen-essential="true"] .tab-stack .tab-background {
+  transition: background-color 0.3s ease-in-out !important;
+}
+
+/* Nebula - URL Bar - Blur and Animation #1 - MOD */
+#browser:has(#urlbar[open]) .browserContainer {
+  filter: blur(20px) brightness(65%) saturate(180%) !important;
+  opacity: 0.7 !important;
+  scale: 1 !important;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.35) !important;
+}
+
+.browserContainer:not(:has(#urlbar[open])) {
+  filter: none !important;
+  opacity: 1 !important;
+  scale: 1 !important;
+  transition:
+    filter 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.35),
+    opacity 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.35),
+    scale 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.35) !important;
+}
+
+
+/* Nebula - Tab Switch Animation - MOD */
+/*
+#tabbrowser-tabpanels > hbox:not(:has(.zen-glance-background)) {
+  &:is([zen-split]) {
+    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.35), filter 0s ease-out !important;
+  }
+  &:not(.zen-glance-background):not([zen-split]) {
+    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.35), filter 0.18s ease-out !important;
+    scale: 0.975 !important;
+    opacity: 1;
+    filter: blur(2px) !important;
+  }
+}
+
+#tabbrowser-tabpanels > hbox.deck-selected:not(:has(.zen-glance-background)) {
+  &:not(.zen-glance-background) {
+    scale: 1 !important;
+    opacity: 1 !important;
+    filter: none !important;
+  }
+}
+*/
+
+/* Compact Extensions Menu - MOD (https://github.com/rainbowflesh/mimicfox/blob/main/popup.css) */
+@media -moz-pref("uc.tweak.compact-extensions-menu") {
+  :root {
+    --uei-icon-size: 16px !important;
+  }
+
+  panelmultiview  {
+    padding-top: -1px !important;
+    padding-left: 2px !important;
+    padding-right: 2px !important;
+    padding-bottom: -1 !important;
+  }
+
+  /* Hide site access permissions label. */
+  .unified-extensions-item-message-deck {
+    display: none !important;
+  }
+
+  /* Use smaller toolbar extension icon if available. */
+  toolbaritem:is([overflowedItem="true"], [cui-areatype="panel"]) > .webextension-browser-action {
+    list-style-image: var(--webextension-toolbar-image, var(--webextension-menupanel-image, inherit)) !important;
+  }
+
+
+  /* Use smaller font-size in extensions menu on Windows. */
+  @media (-moz-platform: windows) {
+    #unified-extensions-panel .toolbarbutton-text {
+      font: menu !important;
+      font-family: inherit !important;
+    }
+  }
+
+  /* Prevent extension labels from using >1 line, adding ellipsis if necessary. */
+  .unified-extensions-item-contents {
+    flex: 1 !important;
+    & > .unified-extensions-item-name,
+    & > .unified-extensions-item-message-deck > .unified-extensions-item-message {
+      max-width: calc(100% - 4px) !important;
+      overflow: hidden !important;
+      text-overflow: ellipsis !important;
+      white-space: nowrap !important;
+    }
+  }
+
+  /* Extension item menu button. */
+  .unified-extensions-item-menu-button {
+    padding: 0 !important;
+    & > .toolbarbutton-icon {
+      border: none !important;
+      padding-inline: var(--arrowpanel-menuitem-padding-inline) !important;
+      padding-block: var(--arrowpanel-menuitem-padding-block) !important;
+      margin-inline-start: var(--uc-arrowpanel-menuitem-margin-inline) !important;
+    }
+  }
+
+  /* Add grayscale filter to extensions with no access to current site. */
+  .unified-extensions-list
+    .unified-extensions-item-action-button:has(
+      .unified-extensions-item-message[data-l10n-id="origin-controls-state-no-access"]
+    )
+    .unified-extensions-item-icon {
+    filter: grayscale(1) !important;
+  }
+
+  /* Hide unaccessible extensions */
+  unified-extensions-item.toolbaritem-combined-buttons.unified-extensions-item .subviewbutton {
+    display: none !important;
+  }
+
+  /* Adjust spacing between the extension item's icon and label. */
+  .unified-extensions-item-name,
+  .unified-extensions-item-message {
+    padding-inline-start: var(--uc-arrowpanel-menuicon-margin-inline) !important;
+  }
+
+  .unified-extensions-item-icon,
+  .unified-extensions-item .webextension-browser-action > .toolbarbutton-badge-stack {
+    margin-inline-end: 0 !important;
+  }
+}
+
+/* Color Theme Tweaks */
+
+/* Essentials favicon flair */
+#zen-essentials-container > .tabbrowser-tab,
+#zen-welcome-initial-essentials-browser-sidebar-essentials .tabbrowser-tab {
+  @media -moz-pref('zen.theme.essentials-favicon-bg') {
+    &[visuallyselected] > .tab-stack > .tab-background {
+      &::after {
+        filter: blur(20px) brightness(1.2) !important;
+        background-size: 100% 100% !important;
+        background-position: center !important;
+      }
+
+      &::before {
+        background: light-dark(rgba(255, 255, 255, 0.85), rgba(68, 64, 64, 0.65)) !important;
+        backdrop-filter: unset !important;
+      }
+
+      &[visuallyselected]:hover .tab-background::before {
+      background: unset !important;
+      }
+    }
+  }
+}
+
+/* Set background color for pinned tabs */
+
+/* background color of pinned tabs (essentials only) in a normal state (not hovered/selected) */
+.tabbrowser-tab[pinned][zen-essential="true"] .tab-stack .tab-background {
+  background-color: color-mix(in srgb, var(--zen-colors-primary) 15%, transparent) !important;
+}
+
+/* background color when hovering */
+.tabbrowser-tab[pinned]:hover .tab-stack .tab-background {
+  background-color: color-mix(in srgb, var(--zen-colors-primary) 27%, transparent) !important;
+}
+.tabbrowser-tab[pinned][zen-essential="true"]:hover .tab-stack .tab-background {
+  background-color: color-mix(in srgb, var(--zen-colors-primary) 34%, transparent) !important;
+}
+
+/* background color when selected */
+.tabbrowser-tab[pinned][selected="true"] .tab-stack .tab-background,
+.tabbrowser-tab[pinned][multiselected="true"] .tab-stack .tab-background {
+  background-color: color-mix(in srgb, var(--zen-colors-primary) 45%, transparent) !important;
+}
+
+/* background color when selected and hovering*/
+.tabbrowser-tab[pinned][selected="true"]:hover .tab-stack .tab-background,
+.tabbrowser-tab[pinned][multiselected="true"]:hover .tab-stack .tab-background {
+  background-color: color-mix(in srgb, var(--zen-colors-primary) 60%, transparent) !important;
+}
+
+/* Restore Colorful theme overrides */
+@media -moz-pref("zen.theme.color-prefs.colorful") {
+    :root {
+      --zen-in-content-dialog-background: rgb(28, 28, 32) !important;
+      --zen-colors-primary: color-mix(in srgb, var(--zen-primary-color) 50%, black 50%) !important;
+      --zen-colors-secondary: color-mix(in srgb, var(--zen-primary-color) 40%, black 60%) !important;
+      --zen-colors-tertiary: color-mix(in srgb, var(--zen-primary-color) 15%, black 85%) !important;
+      --zen-colors-hover-bg: color-mix(in srgb, var(--zen-primary-color) 90%, black 10%) !important;
+      --zen-colors-primary-foreground: color-mix(in srgb, var(--zen-primary-color) 80%, white 20%) !important;
+      --zen-colors-input-bg: color-mix(in srgb, var(--zen-primary-color) 10%, black 80%) !important;
+      --zen-colors-border: color-mix(in srgb, var(--zen-colors-secondary) 80%, black 20%) !important;
+      --zen-dialog-background: color-mix(in srgb, var(--zen-primary-color) 10%, black 90%) !important;
+      --zen-browser-gradient-base: color-mix(in srgb, var(--zen-primary-color) 30%, black 70%) !important;
+    }
+}
+
+/* Catppuccin Mocha Tweaks */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --arrowpanel-background: #1e1e2e !important;
+    --arrowpanel-color: #cdd6f4 !important;
+    --in-content-button-background-hover: color-mix(in srgb, var(--zen-colors-primary) 75%, var(--zen-branding-bg) 25%) !important;
+    --toolbarbutton-active-outline-color: var(--zen-colors-border) !important;
+    --lwt-sidebar-background-color: #1e1e2e !important;
+    --lwt-sidebar-text-color: #cdd6f4 !important;
+    --lwt-text-color: #cdd6f4 !important;
+    --newtab-background-color: #1e1e2e !important;
+    --newtab-text-primary-color: #cdd6f4 !important;
+    --sidebar-text-color: #cdd6f4 !important;
+    --tab-selected-textcolor: #cdd6f4 !important;
+    --toolbar-bgcolor: #313244 !important;
+    --toolbar-color: #cdd6f4 !important;
+    --toolbar-field-color: #cdd6f4 !important;
+    --toolbar-field-focus-color: #cdd6f4 !important;
+    --toolbarbutton-hover-background: color-mix(in srgb, var(--zen-colors-primary) 45%, transparent) !important;
+    --toolbarbutton-icon-fill: #cdd6f4 !important;
+    --zen-colors-border: color-mix(in srgb, var(--zen-colors-primary) 45%, transparent) !important;
+  }
+
+  menuitem:not([disabled=true]),
+  menupopup menu:not([disabled=true]) {
+    color: var(--lwt-text-color) !important;
+  }
+
+  menuitem[disabled=true],
+  menupopup menu[disabled=true] {
+    color: #6c7086 !important;
+  }
+
+  .sidebar-placesTree {
+    background-color: #1e1e2e !important;
+  }
+
+  #urlbar-background {
+    background-color: color-mix(in srgb, var(--zen-colors-primary) 45%, var(--zen-colors-tertiary) 92%) !important;
+  }
+
+  .content-shortcuts {
+    background-color: #1e1e2e !important;
+    border-color: #b4befe !important;
+  }
+
+  .urlbarView-url {
+    color: color-mix(in srgb, var(--zen-colors-primary) 60%, white 22%) !important;
+  }
+
+  #zenEditBookmarkPanelFaviconContainer {
+    background: #11111b !important;
+  }
+
+  toolbar .toolbarbutton-1 {
+    &:not([disabled]) {
+      &:is([open], [checked])> :is(.toolbarbutton-icon, .toolbarbutton-text, .toolbarbutton-badge-stack) {
+        fill: #a6adc8 !important;
+        background-color: color-mix(in srgb, var(--zen-colors-primary) 45%, transparent) !important;
+      }
+    }
+  }
+
+  toolbar .toolbarbutton-1:hover {
+    &:not([disabled]) {
+      &:is([open], [checked])> :is(.toolbarbutton-icon, .toolbarbutton-text, .toolbarbutton-badge-stack) {
+        background-color: color-mix(in srgb, var(--zen-colors-primary) 60%, transparent) !important;
+      }
+    }
+  }
+}
