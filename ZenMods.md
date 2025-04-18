@@ -1,26 +1,30 @@
 # List of Zen Mods
 
-## Animations Plus
+## Required Mods
 
-## Better CtrlTab Panel
+### Animations Plus
 
-## Better Find Bar
+### Better CtrlTab Panel
 
-## Bleeding Corners Fix
+### Better Find Bar
 
-## Cleaner Extension Menu
+### Bleeding Corners Fix
 
-## Disable Rounded Corners
+### Cleaner Extension Menu
 
-## Hide Window Buttons
+### Disable Rounded Corners
 
-## No Sidebar Scrollbar
+### Hide Window Buttons
 
-## Smaller Compact Mode
+### No Sidebar Scrollbar
 
-## Tab Preview Enhanced
+### Tab Preview Enhanced
 
-## Zen Context Menu
+## Suggested Mods
+
+### Smaller Compact Mode
+
+### Zen Context Menu
 
 > [!NOTE]
 >
