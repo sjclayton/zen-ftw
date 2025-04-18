@@ -78,7 +78,7 @@
 }
 
 /* Add background & border highlight to selected tab(s) */
-.tabbrowser-tab:not([pinned]):is([multiselected="true"], [selected]) .tab-background {
+.tabbrowser-tab:not([zen-essential]):has([multiselected="true"], [selected]) .tab-background {
   border: 1px solid var(--zen-colors-tertiary) !important;
   background: color-mix(in srgb,
       var(--zen-colors-primary) 45%,
