@@ -210,8 +210,19 @@
 /* Glance buttons */
 #zen-glance-sidebar-container {
   & toolbarbutton {
-    background: color-mix(in srgb, var(--zen-colors-hover-bg), black 8%) !important;
+    background: color-mix(in srgb, var(--zen-primary-color), black 6%) !important;
   }
+  
+  & toolbarbutton:hover {
+    filter: brightness(115%) !important;
+    transition: filter 0.3s ease-in-out !important;
+  }
+}
+
+/* Glance open animation fix */
+.browserSidebarContainer.zen-glance-background.deck-selected {
+  filter: blur(5px) brightness(65%);
+  transition: filter 0.1s ease-in-out;
 }
 
 /* Colorize media player */
