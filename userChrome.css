@@ -172,12 +172,21 @@
   border: none !important;
 }
 
-/* Workspace indicator (selection button) */
-#zen-workspaces-button {
-  display: none !important;
+/* Enable/disable workspace icon strip */
+@media -moz-pref("uc.zenftw.hide-workspace-icon-strip") {
+  #zen-workspaces-button {
+    display: none !important;
+  }
 }
 
-@media -moz-pref("zen.workspaces.show-workspace-indicator") {
+/* Set text properties of current workspace indicator */
+.zen-current-workspace-indicator-name {
+  color: var(--lwt-text-color) !important;
+  opacity: 1 !important;
+}
+
+/* Workspace indicator (used as button / switcher) */
+@media -moz-pref("zen.workspaces.show-workspace-indicator") and -moz-pref("uc.zenftw.workspace-button") {
   #urlbar {
     margin-top: 5px !important;
   }
@@ -195,11 +204,6 @@
     &::before {
       transition: background 0.3s ease-in-out !important;
     }
-  }
-
-  .zen-current-workspace-indicator-name {
-    color: var(--lwt-text-color) !important;
-    opacity: 1 !important;
   }
 }
 
@@ -318,7 +322,7 @@
 */
 
 /* Compact Extensions Menu - MOD (https://github.com/rainbowflesh/mimicfox/blob/main/popup.css) */
-@media -moz-pref("uc.tweak.compact-extensions-menu") {
+@media -moz-pref("uc.zenftw.compact-extensions-menu") {
   :root {
     --uei-icon-size: 16px !important;
   }
@@ -423,7 +427,7 @@
   }
 }
 
-/* Set background color for pinned tabs */
+/* Set background colors for pinned / essentials tabs */
 
 /* background color of pinned tabs (essentials only) in a normal state (not hovered/selected) */
 .tabbrowser-tab[pinned][zen-essential="true"] .tab-stack .tab-background {
@@ -451,7 +455,7 @@
 }
 
 /* Restore Colorful theme overrides */
-@media -moz-pref("zen.theme.color-prefs.colorful") {
+@media -moz-pref("uc.zenftw.colorful-theme") {
     :root {
       --zen-in-content-dialog-background: rgb(28, 28, 32) !important;
       --zen-colors-primary: color-mix(in srgb, var(--zen-primary-color) 50%, black 50%) !important;
