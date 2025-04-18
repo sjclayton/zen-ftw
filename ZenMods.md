@@ -20,7 +20,7 @@
 
 ### Tab Preview Enhanced
 
-## Suggested Mods
+## Optional Mods
 
 ### Smaller Compact Mode
 
