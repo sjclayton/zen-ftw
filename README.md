@@ -1,11 +1,11 @@
 # Zen FTW
 
-> A comfortable and elegant Zen browsing experience, for people who want to browse, not rice.
+A comfortable and elegant Zen browsing experience, for people who want to browse, not rice.
 
-[!WARNING]
-
-Zen FTW is a work in progress. Please do not file issues or pull requests on this repository.
+> [!WARN]
+>
+> Zen FTW is a work in progress. Please do not file issues or pull requests on this repository.
 
 ## Required Mods
 
-[[list-of-zen-mods]]
+[[ZenMods.md#list-of-zen-mods]]
