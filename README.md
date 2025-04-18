@@ -22,3 +22,7 @@ A comfortable and elegant Zen browsing experience, for people who want to browse
 not essential to the Zen FTW experience.
 
 ## Contributing
+
+Contributions will be welcomed once the Zen FTW experience is stable enough (Once the WIP phase is over).
+
+Please note however, that being as Zen FTW is mainly my personal configuration for Zen, that not all PR's will be merged.
