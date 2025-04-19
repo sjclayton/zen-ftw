@@ -106,6 +106,14 @@
   background-color: var(--identity-icon-color) !important;
 }
 
+/* More compact sidebar (in compact mode) */
+@media (-moz-bool-pref: "zen.view.compact.hide-tabbar") {
+  :root[zen-compact-mode="true"] #navigator-toolbox {
+    margin-top: 12.25vh !important;
+    height: 75vh !important;
+  }
+}
+
 /* Floating status bar */
 #statuspanel {
   margin: 5px !important;

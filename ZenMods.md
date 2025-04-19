@@ -22,8 +22,6 @@
 
 ## Optional Mods
 
-### Smaller Compact Mode
-
 ### Zen Context Menu
 
 > [!NOTE]
