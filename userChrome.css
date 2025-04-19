@@ -79,20 +79,8 @@
 
 /* Add background & border highlight to selected tab(s) */
 .tabbrowser-tab:not([zen-essential]):has([multiselected="true"], [selected]) .tab-background {
-  border: 1px solid var(--zen-colors-tertiary);
-  background: color-mix(in srgb,
-      var(--zen-colors-primary) 45%,
-      transparent) !important;
-}
-
-/* Glance tab indicator colors */
-vbox stack:has([zen-glance-tab="true"], [glance-id]) .tab-stack .tab-background {
-  border: 1px solid var(--zen-colors-border) !important;
+  border: 1px solid var(--zen-colors-tertiary) !important;
   background: color-mix(in srgb, var(--zen-colors-primary) 45%, transparent) !important;
-}
-
-vbox stack .tabbrowser-tab:has([multiselected="true"], [selected], [zen-glance-tab="true"], [glance-id]) .tab-stack .tab-background {
-  border: 1px solid color-mix(in srgb, var(--zen-colors-primary) 100%, white 15%) !important;
 }
 
 /* Dim tab text when tab is unloaded */
@@ -222,11 +210,35 @@ vbox stack .tabbrowser-tab:has([multiselected="true"], [selected], [zen-glance-t
   & toolbarbutton {
     background: color-mix(in srgb, var(--zen-primary-color), black 6%) !important;
   }
-  
+
   & toolbarbutton:hover {
     filter: brightness(115%) !important;
     transition: filter 0.3s ease-in-out !important;
   }
+}
+
+/* Glance tab indicator settings */
+.tabbrowser-tab:is([zen-essential]) stack:has([zen-glance-tab="true"]) .tab-stack {
+  padding: 3px !important;
+  transform: translateX(5%) translateY(8%) !important;
+}
+
+.tabbrowser-tab:is([zen-essential]) stack:has([zen-glance-tab="true"]) .tab-stack .tab-background {
+  border: unset !important;
+  background: unset !important;
+}
+
+.tabbrowser-tab:is([zen-essential]):hover stack:has([zen-glance-tab="true"]) .tab-stack .tab-background {
+  background: unset !important;
+}
+
+.tabbrowser-tab:not([zen-essential]) stack:has([zen-glance-tab="true"]) .tab-stack .tab-background {
+  border: 1px solid var(--zen-colors-border) !important;
+  background: color-mix(in srgb, var(--zen-colors-primary) 45%, transparent) !important;
+}
+
+.tabbrowser-tab:not([zen-essential]):has([multiselected="true"], [selected]) stack:has([zen-glance-tab="true"]) .tab-stack .tab-background {
+  border: 1px solid color-mix(in srgb, var(--zen-colors-primary) 100%, white 15%) !important;
 }
 
 /* Glance open animation fix */
