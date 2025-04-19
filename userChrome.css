@@ -269,6 +269,15 @@
   }
 }
 
+/* Hide URL bar from sidebar (in compact mode) still accessible as floating popup */
+@media -moz-pref("zen.view.compact.hide-tabbar") and -moz-pref("uc.zenftw.hide-sidebar-urlbar-compact") {
+  :root[zen-compact-mode='true']{
+    #nav-bar:not(:has(#urlbar[breakout-extend='true'])) {
+      visibility: collapse;
+    }
+  }
+}
+
 /* Add visual cue to URL bar when opening in a new tab */
 #urlbar[zen-newtab="true"] {
   #identity-icon {
