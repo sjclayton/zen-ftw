@@ -12,8 +12,6 @@
 
 ### Cleaner Extension Menu
 
-### Disable Rounded Corners
-
 ### Hide Window Buttons
 
 ### No Sidebar Scrollbar
@@ -22,8 +20,13 @@
 
 ## Optional Mods
 
+### Disable Rounded Corners
+
+Does exactly what it says on the tin... disables the rounded corners of various UI
+elements (including the main content view), recommended if you'd like a slightly
+different look.
+
 ### Zen Context Menu
 
-> [!NOTE]
->
-> No specific settings needed (adjust to your own needs / taste)
+Very useful for quickly cleaning up unwanted / unused context menu items for a
+cleaner, more Zen look.
