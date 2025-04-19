@@ -232,8 +232,9 @@
 }
 
 .tabbrowser-tab:is([zen-essential]) stack:has([zen-glance-tab="true"]) .tab-stack .tab-background {
-  border: unset !important;
   background: unset !important;
+  box-shadow: unset !important;
+  border: unset !important;
 }
 
 .tabbrowser-tab:is([zen-essential]):hover stack:has([zen-glance-tab="true"]) .tab-stack .tab-background {
@@ -241,8 +242,9 @@
 }
 
 .tabbrowser-tab:not([zen-essential]) stack:has([zen-glance-tab="true"]) .tab-stack .tab-background {
-  border: 1px solid var(--zen-colors-border) !important;
   background: color-mix(in srgb, var(--zen-colors-primary) 45%, transparent) !important;
+  box-shadow: unset !important;
+  border: 1px solid var(--zen-colors-border) !important;
 }
 
 .tabbrowser-tab:not([zen-essential]):has([multiselected="true"], [selected]) stack:has([zen-glance-tab="true"]) .tab-stack .tab-background {
