@@ -79,7 +79,7 @@
 
 /* Add background & border highlight to selected tab(s) */
 .tabbrowser-tab:not([zen-essential]):has([multiselected="true"], [selected]) .tab-background {
-  border: 1px solid var(--zen-colors-tertiary) !important;
+  box-shadow: 0 0 6px rgba(0,0,0,0.3) !important;
   background: color-mix(in srgb, var(--zen-colors-primary) 45%, transparent) !important;
 }
 
