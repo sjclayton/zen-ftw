@@ -83,7 +83,7 @@
 }
 
 /* Add background & border highlight to selected tab(s) */
-.tabbrowser-tab:not([zen-essential]):has([multiselected='true'], [selected]) .tab-background {
+.tabbrowser-tab:not([zen-essential]):has([multiselected='true'], [selected]) .tab-stack .tab-background {
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.3) !important;
   background: color-mix(in srgb, var(--zen-colors-primary) 45%, transparent) !important;
 }
@@ -511,31 +511,18 @@
   }
 }
 
-/* Set background colors for pinned / essentials tabs */
-
-/* background color of pinned tabs (essentials only) in a normal state (not hovered/selected) */
+/* Set background colors for essentials tabs */
 .tabbrowser-tab[pinned][zen-essential='true'] .tab-stack .tab-background {
   background-color: color-mix(in srgb, var(--zen-colors-primary) 15%, transparent) !important;
 }
 
-/* background color when hovering */
-.tabbrowser-tab[pinned]:hover .tab-stack .tab-background {
-  background-color: color-mix(in srgb, var(--zen-colors-primary) 27%, transparent) !important;
-}
 .tabbrowser-tab[pinned][zen-essential='true']:hover .tab-stack .tab-background {
   background-color: color-mix(in srgb, var(--zen-colors-primary) 34%, transparent) !important;
 }
 
-/* background color when selected */
-.tabbrowser-tab[pinned][selected='true'] .tab-stack .tab-background,
-.tabbrowser-tab[pinned][multiselected='true'] .tab-stack .tab-background {
+.tabbrowser-tab[pinned][zen-essential='true'][selected='true'] .tab-stack .tab-background,
+.tabbrowser-tab[pinned][zen-essential='true'][multiselected='true'] .tab-stack .tab-background {
   background-color: color-mix(in srgb, var(--zen-colors-primary) 45%, transparent) !important;
-}
-
-/* background color when selected and hovering*/
-.tabbrowser-tab[pinned][selected='true']:hover .tab-stack .tab-background,
-.tabbrowser-tab[pinned][multiselected='true']:hover .tab-stack .tab-background {
-  background-color: color-mix(in srgb, var(--zen-colors-primary) 60%, transparent) !important;
 }
 
 /* Restore Colorful theme overrides */
@@ -552,6 +539,12 @@
     --zen-dialog-background: color-mix(in srgb, var(--zen-primary-color) 10%, black 90%) !important;
     --zen-browser-gradient-base: color-mix(in srgb, var(--zen-primary-color) 30%, black 70%) !important;
   }
+}
+
+/* Apply tinted primary color to (panels / menus / context menus) */
+menupopup,
+panel {
+  --panel-background: color-mix(in srgb, var(--zen-colors-primary) 42%, rgba(0, 0, 0, 1)) !important;
 }
 
 /* Catppuccin Mocha Tweaks */
