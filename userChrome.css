@@ -354,7 +354,6 @@
     color-mix(in srgb, var(--zen-primary-color) 30%, black),
     color-mix(in srgb, var(--zen-primary-color) 50%, black),
     color-mix(in srgb, var(--zen-primary-color) 75%, black),
-    color-mix(in srgb, var(--zen-primary-color) 100%, black),
     color-mix(in srgb, var(--zen-primary-color) 50%, black),
     color-mix(in srgb, var(--zen-primary-color) 30%, black),
     color-mix(in srgb, var(--zen-primary-color) 15%, black)
