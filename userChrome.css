@@ -383,29 +383,6 @@
   transition: filter 0.2s ease-in-out !important;
 }
 
-/* Nebula - Tab Switch Animation - MOD */
-/*
-#tabbrowser-tabpanels > hbox:not(:has(.zen-glance-background)) {
-  &:is([zen-split]) {
-    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.35), filter 0s ease-out !important;
-  }
-  &:not(.zen-glance-background):not([zen-split]) {
-    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.35), filter 0.18s ease-out !important;
-    scale: 0.975 !important;
-    opacity: 1;
-    filter: blur(2px) !important;
-  }
-}
-
-#tabbrowser-tabpanels > hbox.deck-selected:not(:has(.zen-glance-background)) {
-  &:not(.zen-glance-background) {
-    scale: 1 !important;
-    opacity: 1 !important;
-    filter: none !important;
-  }
-}
-*/
-
 /* Compact Extensions Menu - MOD (https://github.com/rainbowflesh/mimicfox/blob/main/popup.css) */
 @media -moz-pref('uc.zenftw.compact-extensions-menu') {
   :root {
