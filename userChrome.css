@@ -21,6 +21,15 @@
   }
 }
 
+@keyframes urlbar-loading-gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 300% 50%;
+  }
+}
+
 /* Adjust sizing of sidebar buttons (lower left) */
 #zen-sidebar-bottom-buttons {
   --toolbarbutton-inner-padding: 4px !important;
@@ -270,6 +279,7 @@
 }
 
 /* Hide URL bar from sidebar (in compact mode) still accessible as floating popup */
+/* Disabled for now, as it breaks the ability to focus the URL properly
 @media -moz-pref("zen.view.compact.hide-tabbar") and -moz-pref("uc.zenftw.hide-sidebar-urlbar-compact") {
   :root[zen-compact-mode='true']{
     #nav-bar:not(:has(#urlbar[breakout-extend='true'])) {
@@ -277,6 +287,7 @@
     }
   }
 }
+*/
 
 /* Add visual cue to URL bar when opening in a new tab */
 #urlbar[zen-newtab="true"] {
@@ -332,24 +343,46 @@
   transition: background-color 0.3s ease-in-out !important;
 }
 
-/* Nebula - URL Bar - Blur and Animation #1 - MOD */
+/* URL bar loading animation */
+#urlbar .urlbar-input-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    55deg,
+    color-mix(in srgb, var(--zen-primary-color) 15%, black),
+    color-mix(in srgb, var(--zen-primary-color) 30%, black),
+    color-mix(in srgb, var(--zen-primary-color) 50%, black),
+    color-mix(in srgb, var(--zen-primary-color) 75%, black),
+    color-mix(in srgb, var(--zen-primary-color) 100%, black),
+    color-mix(in srgb, var(--zen-primary-color) 50%, black),
+    color-mix(in srgb, var(--zen-primary-color) 30%, black),
+    color-mix(in srgb, var(--zen-primary-color) 15%, black)
+  );
+  background-size: 300% 100%;
+  background-repeat: repeat-x;
+  animation: urlbar-loading-gradient 8s linear infinite;
+  opacity: 0;
+  filter: blur(20px) brightness(1);
+  transition: opacity 0.5s ease-in-out;
+  z-index: 0;
+  pointer-events: none;
+}
+
+#main-window:has(.tabbrowser-tab[selected][busy]) .urlbar-input-container::before {
+  opacity: 0.485;
+}
+
+/* Blur content-view when URL bar is open */
 #browser:has(#urlbar[open]) .browserContainer {
-  filter: blur(20px) brightness(65%) saturate(180%) !important;
-  opacity: 0.7 !important;
-  scale: 1 !important;
-  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.35) !important;
+  filter: blur(20px) brightness(55%) saturate(150%) !important;
+  transition: filter 0.25s ease-in-out !important;
 }
 
 .browserContainer:not(:has(#urlbar[open])) {
   filter: none !important;
-  opacity: 1 !important;
-  scale: 1 !important;
-  transition:
-    filter 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.35),
-    opacity 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.35),
-    scale 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.35) !important;
+  transition: filter 0.2s ease-in-out !important;
 }
-
 
 /* Nebula - Tab Switch Animation - MOD */
 /*
