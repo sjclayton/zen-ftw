@@ -10,8 +10,6 @@
 
 ### Bleeding Corners Fix
 
-### Cleaner Extension Menu
-
 ### Hide Window Buttons
 
 ### No Sidebar Scrollbar
