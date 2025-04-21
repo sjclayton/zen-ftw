@@ -383,84 +383,94 @@
   transition: filter 0.2s ease-in-out !important;
 }
 
-/* Compact Extensions Menu - MOD (https://github.com/rainbowflesh/mimicfox/blob/main/popup.css) */
-@media -moz-pref('uc.zenftw.compact-extensions-menu') {
-  :root {
-    --uei-icon-size: 16px !important;
-  }
+/* Compact Extensions Menu (credit: https://github.com/rainbowflesh/mimicfox/blob/main/popup.css) */
+:root {
+  --uei-icon-size: 16px !important;
+}
 
-  panelmultiview {
-    padding-top: -1px !important;
-    padding-right: 2px !important;
-    padding-bottom: -1px !important;
-    padding-left: 2px !important;
-  }
+panelmultiview {
+  padding-top: -1px !important;
+  padding-right: 2px !important;
+  padding-bottom: -1px !important;
+  padding-left: 2px !important;
+}
 
-  /* Hide site access permissions label. */
-  .unified-extensions-item-message-deck {
-    display: none !important;
-  }
+/* Hide menu panel header */
+#unified-extensions-view box.panel-header,
+#unified-extensions-description,
+#unified-extensions-messages-container {
+  display: none !important;
+}
 
-  /* Use smaller toolbar extension icon if available. */
-  toolbaritem:is([overflowedItem='true'], [cui-areatype='panel']) > .webextension-browser-action {
-    list-style-image: var(--webextension-toolbar-image, var(--webextension-menupanel-image, inherit)) !important;
-  }
+/* Set menu panel width */
+#unified-extensions-view {
+  width: var(--menu-panel-width) !important;
+}
 
-  /* Use smaller font-size in extensions menu on Windows. */
-  @media (-moz-platform: windows) {
-    #unified-extensions-panel .toolbarbutton-text {
-      font: menu !important;
-      font-family: inherit !important;
-    }
-  }
+/* Hide site access permissions label. */
+.unified-extensions-item-message-deck {
+  display: none !important;
+}
 
-  /* Prevent extension labels from using >1 line, adding ellipsis if necessary. */
-  .unified-extensions-item-contents {
-    flex: 1 !important;
-    & > .unified-extensions-item-name,
-    & > .unified-extensions-item-message-deck > .unified-extensions-item-message {
-      max-width: calc(100% - 4px) !important;
-      overflow: hidden !important;
-      text-overflow: ellipsis !important;
-      white-space: nowrap !important;
-    }
-  }
+/* Use smaller toolbar extension icon if available. */
+toolbaritem:is([overflowedItem='true'], [cui-areatype='panel']) > .webextension-browser-action {
+  list-style-image: var(--webextension-toolbar-image, var(--webextension-menupanel-image, inherit)) !important;
+}
 
-  /* Extension item menu button. */
-  .unified-extensions-item-menu-button {
-    padding: 0 !important;
-    & > .toolbarbutton-icon {
-      border: none !important;
-      padding-inline: var(--arrowpanel-menuitem-padding-inline) !important;
-      padding-block: var(--arrowpanel-menuitem-padding-block) !important;
-      margin-inline-start: var(--uc-arrowpanel-menuitem-margin-inline) !important;
-    }
+/* Use smaller font-size in extensions menu on Windows. */
+@media (-moz-platform: windows) {
+  #unified-extensions-panel .toolbarbutton-text {
+    font: menu !important;
+    font-family: inherit !important;
   }
+}
 
-  /* Add grayscale filter to extensions with no access to current site. */
-  .unified-extensions-list
-    .unified-extensions-item-action-button:has(
-      .unified-extensions-item-message[data-l10n-id='origin-controls-state-no-access']
-    )
-    .unified-extensions-item-icon {
-    filter: grayscale(1) !important;
+/* Prevent extension labels from using >1 line, adding ellipsis if necessary. */
+.unified-extensions-item-contents {
+  flex: 1 !important;
+  & > .unified-extensions-item-name,
+  & > .unified-extensions-item-message-deck > .unified-extensions-item-message {
+    max-width: calc(100% - 4px) !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
   }
+}
 
-  /* Hide unaccessible extensions */
-  unified-extensions-item.toolbaritem-combined-buttons.unified-extensions-item .subviewbutton {
-    display: none !important;
+/* Extension item menu button. */
+.unified-extensions-item-menu-button {
+  padding: 0 !important;
+  & > .toolbarbutton-icon {
+    border: none !important;
+    padding-inline: var(--arrowpanel-menuitem-padding-inline) !important;
+    padding-block: var(--arrowpanel-menuitem-padding-block) !important;
+    margin-inline-start: var(--uc-arrowpanel-menuitem-margin-inline) !important;
   }
+}
 
-  /* Adjust spacing between the extension item's icon and label. */
-  .unified-extensions-item-name,
-  .unified-extensions-item-message {
-    padding-inline-start: var(--uc-arrowpanel-menuicon-margin-inline) !important;
-  }
+/* Add grayscale filter to extensions with no access to current site. */
+.unified-extensions-list
+  .unified-extensions-item-action-button:has(
+    .unified-extensions-item-message[data-l10n-id='origin-controls-state-no-access']
+  )
+  .unified-extensions-item-icon {
+  filter: grayscale(1) !important;
+}
 
-  .unified-extensions-item-icon,
-  .unified-extensions-item .webextension-browser-action > .toolbarbutton-badge-stack {
-    margin-inline-end: 0 !important;
-  }
+/* Hide unaccessible extensions */
+unified-extensions-item.toolbaritem-combined-buttons.unified-extensions-item .subviewbutton {
+  display: none !important;
+}
+
+/* Adjust spacing between the extension item's icon and label. */
+.unified-extensions-item-name,
+.unified-extensions-item-message {
+  padding-inline-start: var(--uc-arrowpanel-menuicon-margin-inline) !important;
+}
+
+.unified-extensions-item-icon,
+.unified-extensions-item .webextension-browser-action > .toolbarbutton-badge-stack {
+  margin-inline-end: 0 !important;
 }
 
 /* Color Theme Tweaks */
