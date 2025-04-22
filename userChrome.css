@@ -277,18 +277,6 @@
   }
 }
 
-/* Hide URL bar from sidebar (in compact mode) still accessible as floating popup */
-/* FIX: Disabled for now, as it breaks the ability to focus the URL properly */
-/*
-@media (-moz-pref('zen.view.compact.hide-tabbar')) and (-moz-pref('uc.zenftw.hide-sidebar-urlbar-compact')) {
-  :root[zen-compact-mode='true'] {
-    #nav-bar:not(:has(#urlbar[breakout-extend='true'])) {
-      visibility: collapse;
-    }
-  }
-}
-*/
-
 /* Add visual cue to URL bar when opening in a new tab */
 #urlbar[zen-newtab='true'] {
   #identity-icon {
@@ -311,8 +299,12 @@
 
 /* Adjust border / background color of URL bar (not floating) */
 #urlbar-background {
-  background-color: color-mix(in srgb, var(--zen-colors-primary) 45%, var(--zen-colors-tertiary) 92%) !important;
+  background: var(--zen-urlbar-background) !important;
   border: 1px solid var(--zen-colors-border) !important;
+}
+
+#urlbar:not([breakout-extend]) .urlbar-input-container:hover {
+  background: color-mix(in srgb, var(--zen-urlbar-background), rgba(255, 255, 255, 0.05)) !important;
 }
 
 /* Adjust color of page title in URL bar popup */
@@ -522,8 +514,9 @@ unified-extensions-item.toolbaritem-combined-buttons.unified-extensions-item .su
     --zen-colors-hover-bg: color-mix(in srgb, var(--zen-primary-color) 90%, black 10%) !important;
     --zen-colors-primary-foreground: color-mix(in srgb, var(--zen-primary-color) 80%, white 20%) !important;
     --zen-colors-input-bg: color-mix(in srgb, var(--zen-primary-color) 10%, black 80%) !important;
-    /* --zen-colors-border: color-mix(in srgb, var(--zen-colors-secondary) 80%, black 20%) !important; */
+    --zen-colors-border: color-mix(in srgb, var(--zen-colors-primary) 45%, transparent) !important;
     --zen-dialog-background: color-mix(in srgb, var(--zen-primary-color) 10%, black 90%) !important;
+    --zen-urlbar-background: color-mix(in srgb, var(--zen-primary-color) 15%, rgba(0, 0, 0, 0.22)) !important;
     --zen-browser-gradient-base: color-mix(in srgb, var(--zen-primary-color) 30%, black 70%) !important;
   }
 }
@@ -531,7 +524,7 @@ unified-extensions-item.toolbaritem-combined-buttons.unified-extensions-item .su
 /* Apply tinted primary color to (panels / menus / context menus) */
 menupopup,
 panel {
-  --panel-background: color-mix(in srgb, var(--zen-colors-primary) 42%, rgba(0, 0, 0, 1)) !important;
+  --panel-background: color-mix(in srgb, var(--zen-colors-primary) 35%, rgba(0, 0, 0, 1)) !important;
 }
 
 /* Catppuccin Mocha Tweaks */
@@ -539,10 +532,11 @@ panel {
   :root {
     --arrowpanel-background: #1e1e2e !important;
     --arrowpanel-color: #cdd6f4 !important;
+    /* NOTE: This is the hover for menu items */
     --in-content-button-background-hover: color-mix(
       in srgb,
-      var(--zen-colors-primary) 75%,
-      var(--zen-branding-bg) 25%
+      /* var(--zen-colors-primary) 75%, */ var(--zen-colors-primary) 27%,
+      /* var(--zen-branding-bg) 25% */ transparent
     ) !important;
     --toolbarbutton-active-outline-color: var(--zen-colors-border) !important;
     --lwt-sidebar-background-color: #1e1e2e !important;
@@ -558,7 +552,6 @@ panel {
     --toolbar-field-focus-color: #cdd6f4 !important;
     --toolbarbutton-hover-background: color-mix(in srgb, var(--zen-colors-primary) 45%, transparent) !important;
     --toolbarbutton-icon-fill: #cdd6f4 !important;
-    --zen-colors-border: color-mix(in srgb, var(--zen-colors-primary) 45%, transparent) !important;
   }
 
   menuitem:not([disabled='true']),
