@@ -1,6 +1,6 @@
 # Zen FTW
 
-A comfortable and elegant Zen browsing experience, for people who want to browse, not rice.
+_A comfortable and elegant **Zen** browsing experience, for people who want to **browse**, not **rice!**_
 
 > [!WARNING]
 >
