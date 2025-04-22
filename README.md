@@ -18,8 +18,7 @@ A comfortable and elegant Zen browsing experience, for people who want to browse
 
 ### Optional Mods
 
-[Here](/ZenMods.md#optional-mods) is a list of optional mods that I highly recommend, but are
-not essential to the Zen FTW experience.
+[Here](/ZenMods.md#optional-mods) is a list of optional mods that I highly recommend, but are not essential to the Zen FTW experience.
 
 ## Contributing
 
