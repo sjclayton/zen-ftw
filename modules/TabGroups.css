@@ -143,12 +143,12 @@ tab-group:not([split-view-group]) {
       top: 50%;
       width: 2px;
       height: 41px !important;
-      background-color: light-dark(var(--tab-group-color), var(--tab-group-color-invert));
+      background-color: var(--tab-group-color-invert) !important;
       border-radius: 360px !important;
       z-index: 999 !important;
       right: 160px;
       left: 0; /* Reset left positioning */
-      transform: translateX(-5px) !important;
+      transform: translateX(-2px) !important;
     }
   }
   @media not (-moz-bool-pref: 'tab.groups.display-tab-range') {
