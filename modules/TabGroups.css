@@ -231,7 +231,7 @@ tab-group:not([split-view-group]) {
 
   /* Expand when NOT collapsed */
   &:not([collapsed]) {
-    max-height: 500px !important;
+    max-height: unset !important;
     scrollbar-width: none !important;
   }
 
