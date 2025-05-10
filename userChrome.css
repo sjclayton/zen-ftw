@@ -1,3 +1,6 @@
+/* Import modules */
+@import 'modules/TabGroups.css';
+
 /* Animations used by various rules */
 @keyframes grow {
   0% {
@@ -38,48 +41,6 @@
 .unified-extensions-item.chromeclass-toolbar-additional {
   gap: 4px !important;
   margin: 0px -1px !important;
-}
-
-/* Improve appearance of close (exit) button (Linux) */
-@media (-moz-platform: linux) {
-  #PanelUI-menu-button.toolbarbutton-1 {
-    padding-right: 3px !important;
-  }
-
-  .titlebar-buttonbox-container {
-    padding: var(--zen-toolbar-button-inner-padding) !important;
-    padding-right: 9px !important;
-  }
-
-  .titlebar-button {
-    padding: 0px 1px !important;
-  }
-
-  .titlebar-close:hover {
-    border-radius: var(--toolbarbutton-border-radius) !important;
-    background-color: crimson !important;
-  }
-}
-
-/* Improve appearance of close (exit) button (Windows) */
-@media (-moz-platform: windows) {
-  #PanelUI-menu-button.toolbarbutton-1 {
-    padding-right: 3px !important;
-  }
-
-  .titlebar-buttonbox-container {
-    padding: var(--zen-toolbar-button-inner-padding) !important;
-    padding-right: 9px !important;
-  }
-
-  .titlebar-close {
-    border-radius: var(--toolbarbutton-border-radius) !important;
-    padding: 8px !important;
-  }
-
-  .titlebar-close:hover {
-    background-color: crimson !important;
-  }
 }
 
 /* Add background & border highlight to selected tab(s) */
@@ -152,7 +113,7 @@
 }
 
 /* Hide tab icon overlay for audio (mute button) */
-.tab-icon-overlay:is([soundplaying], [muted], [activemedia-blocked]) {
+.tab-audio-button:is([soundplaying], [muted], [activemedia-blocked]) {
   display: none !important;
 }
 
@@ -196,15 +157,10 @@
 
 /* Workspace indicator (used as button / switcher) */
 @media (-moz-pref('zen.workspaces.show-workspace-indicator')) and (-moz-pref('uc.zenftw.workspace-button')) {
-  @media (-moz-pref('zen.view.sidebar-expanded')) {
-    #urlbar {
-      margin-top: 5px !important;
-    }
-  }
-
   #zen-current-workspace-indicator-container {
     order: -1;
     margin-bottom: 40px !important;
+    margin-top: -2px !important;
   }
 
   .zen-current-workspace-indicator {
@@ -291,10 +247,16 @@
 }
 
 /* Adjust background of URL bar popup */
-#urlbar[breakout-extend='true'] > #urlbar-background {
+#urlbar[open] > #urlbar-background {
   background: color-mix(in srgb, var(--zen-colors-primary) 42%, rgba(1, 1, 1, 0.55)) !important;
   border-radius: 16px !important;
-  border-color: transparent !important;
+}
+
+#urlbar[open][zen-floating-urlbar='true'] {
+  #urlbar-container:has(&) {
+    background: var(--zen-urlbar-background) !important;
+    border: 1px solid var(--zen-colors-border) !important;
+  }
 }
 
 /* Adjust border / background color of URL bar (not floating) */
@@ -303,7 +265,7 @@
   border: 1px solid var(--zen-colors-border) !important;
 }
 
-#urlbar:not([breakout-extend]) .urlbar-input-container:hover {
+#urlbar:not([open]) .urlbar-input-container:hover {
   background: color-mix(in srgb, var(--zen-urlbar-background), rgba(255, 255, 255, 0.05)) !important;
 }
 

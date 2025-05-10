@@ -10,8 +10,6 @@
 
 ### [Bleeding Corners Fix](https://zen-browser.app/mods/7d577b21-4685-4db2-bb17-d39d08eec199/)
 
-### Hide Window Buttons
-
 ### [SuperPins](https://zen-browser.app/mods/ad97bb70-0066-4e42-9b5f-173a5e42c6fc/)
 
 ### Tab Preview Enhanced
